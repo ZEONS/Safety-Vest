@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080, initial-scale=1.0">
+    <title>Industrial Mission Control</title>
+    <!-- 폰트 적용: Inter & Roboto Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Roboto+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Header: 통계 요약 -->
+        <header class="header">
+            <div class="brand">
+                <h1>SAFETY VEST MISSION CONTROL</h1>
+                <span class="subtitle">Real-time Biometric Tracking</span>
+            </div>
+            <div class="stats-container">
+                <div class="stat-box score">
+                    <span class="stat-label">SAFETY SCORE</span>
+                    <span class="stat-value" id="safety-score">100%</span>
+                </div>
+                <div class="stat-box total">
+                    <span class="stat-label">TOTAL</span>
+                    <span class="stat-value" id="count-total">100</span>
+                </div>
+                <div class="stat-box normal">
+                    <span class="stat-label">NORMAL</span>
+                    <span class="stat-value" id="count-normal">100</span>
+                </div>
+                <div class="stat-box warning">
+                    <span class="stat-label">WARNING</span>
+                    <span class="stat-value" id="count-warning">0</span>
+                </div>
+                <div class="stat-box danger">
+                    <span class="stat-label">DANGER</span>
+                    <span class="stat-value" id="count-danger">0</span>
+                </div>
+            </div>
+            <div class="clock" id="clock">00:00:00</div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- 10x10 Grid Area -->
+            <section class="grid-area" id="worker-grid">
+                <!-- Worker Cards will be injected by JS -->
+            </section>
+
+            <!-- Event Sidebar Area -->
+            <aside class="event-sidebar">
+                <div class="sidebar-header">
+                    <h2>EVENT LOG</h2>
+                </div>
+                <div class="log-container" id="log-container">
+                    <!-- Logs will be injected by JS -->
+                </div>
+            </aside>
+        </main>
+
+        <!-- Detail Modal -->
+        <div class="modal-overlay" id="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-worker-name">Worker Name</h2>
+                    <button id="modal-close" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <canvas id="detail-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
